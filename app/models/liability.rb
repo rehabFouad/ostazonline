@@ -1,0 +1,3 @@
+class Liability < Account
+  
+end
