@@ -1,5 +1,5 @@
 class Transaction < ActiveRecord::Base
-  attr_accessible :description
+  attr_accessible :description, :credit_amounts, :debit_amounts, :credit_accounts, :debit_accounts
   
   has_many :credit_amounts, :extend => AmountsExtension
   has_many :debit_amounts, :extend => AmountsExtension

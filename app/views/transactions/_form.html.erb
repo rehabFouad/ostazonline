@@ -1,0 +1,26 @@
+<%= form_for(@transaction) do |f| %>
+<div class="field">
+    <%= f.label :description%>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :credit_accounts, 'Credit Account' %>
+    <%= f.select :credit_accounts, options_from_collection_for_select(@accounts, 'name', 'name') %>
+  </div>
+  
+ <div class="field">
+    <%= f.label :credit_amounts, 'Credit Amount' %>
+    <%= f.text_field :credit_amounts %>
+  </div>
+  <div class="field">
+    <%= f.label :debit_accounts, 'Debit Account' %>
+    <%= f.select :debit_accounts, options_from_collection_for_select(@accounts, 'name', 'name') %>
+  </div>
+  <div class="field">
+    <%= f.label :debit_amounts, 'Debit Amount' %>
+    <%= f.text_field :debit_amounts %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
