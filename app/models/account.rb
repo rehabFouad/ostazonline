@@ -10,4 +10,21 @@ class Account < ActiveRecord::Base
   def self.types
     [:Asset,:Expense,:Equity,:Liability]
   end
-end
+  
+  
+    def credits_balance
+      credit_amounts.balance
+    end
+
+   
+    def debits_balance
+      debit_amounts.balance
+    end
+
+    
+    def self.all_balance
+         Asset.balance - (Liability.balance + Equity.balance + Revenue.balance - Expense.balance)
+    end
+
+  end
+

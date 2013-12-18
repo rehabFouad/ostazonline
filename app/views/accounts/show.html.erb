@@ -10,6 +10,16 @@
   <%= @account.type %>
 </p>
 
+<p>
+  <b>Credit Balance</b>
+  <%= @account.credits_balance %>
+</p>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
+
+<p>
+  <b>Debit Balance</b>
+  <%= @account.debits_balance %>
+</p>
+
+
 <%= link_to 'Back', accounts_path %>
