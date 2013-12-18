@@ -1,4 +1,16 @@
-<p id="notice"><%= notice %></p>
+<table><tr><td valign="top">
+<div>
+<div id="main"> <%= link_to 'Accounts', accounts_path %> </div> 
+
+
+<div  id="main"> <%= link_to 'Transactions', transactions_path %> </div>
+
+<div  id="main"> <%= link_to 'Balance Sheet', main_balance_sheet_path %> </div>
+</div>
+</td>
+<td valign="top">
+	
+	<p id="notice"><%= notice %></p>
 
 <p>
   <b>Name:</b>
@@ -23,3 +35,5 @@
 
 
 <%= link_to 'Back', accounts_path %>
+</td>
+</tr></table>

@@ -11,3 +11,49 @@
  *= require_self
  *= require_tree .
  */
+
+div#main {
+  width: 150px;
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: #0099CC;
+  color: white;
+  border-bottom: 4px solid #66CCFF;
+  
+  font-style: normal;
+}
+
+
+h2#title {
+  padding: 5px;
+  background-color: #0099CC;
+  color: white;
+  border-bottom: 4px solid #66CCFF;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: bold;
+}
+
+table#balance {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+table#balance th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: #66CCFF;
+}
+table#balance th, table#movies td {
+  padding: 4px;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  line-height: 25px;
+  font-weight: bold;
+  color: #003399;
+}
