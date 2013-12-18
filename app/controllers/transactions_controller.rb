@@ -1,5 +1,15 @@
 class TransactionsController < ApplicationController
   
+  
+  def index
+    @transactions = Transaction.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @transactions }
+    end
+  end
+  
  def new
    @accounts = Account.all
    @transaction = Transaction.new
@@ -13,16 +23,32 @@ class TransactionsController < ApplicationController
  end
  
  def create
- # @transaction = Transaction.build(
-  #              :description => params[:transaction["description"]],
-   #             :debits => [
-    #              {:account => params[:transaction["debit_accounts"]], :amount => params[:transaction["debit_amounts"]]}], 
-     ##            {:account => params[:transaction["credit_accounts"]], :amount => params[:transaction["credit_amounts"]]}])
-                  
-      #@transaction.save 
-      
-                
    
+   @transaction_params = params[:transaction]
+   @transaction_desc = @transaction_params["description"]
+   @transaction_credit_account =  @transaction_params["credit_accounts"]
+   @transaction_credit_amount =  @transaction_params["credit_amounts"]
+   @transaction_debit_account =  @transaction_params["debit_accounts"]
+   @transaction_debit_amount =  @transaction_params["debit_amounts"]
+      
+   @transaction = Transaction.build(
+                  :description => @transaction_desc,
+                  :debits => [
+                    {:account => @transaction_debit_account, :amount => @transaction_debit_amount}], 
+                  :credits => [
+                    {:account => @transaction_credit_account, :amount => @transaction_credit_amount}])
+  @transaction.save
+  
+  respond_to do |format|
+      if @transaction.save
+        format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
+        
+      else
+        format.html { render action: "new" }
+       
+      end
+    end
+  
  end 
  
 end
