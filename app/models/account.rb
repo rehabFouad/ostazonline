@@ -21,6 +21,10 @@ class Account < ActiveRecord::Base
       debit_amounts.balance
     end
 
+    def balance
+        credits_balance - debits_balance
+    end
+
     
     def self.all_balance
          Asset.balance - (Liability.balance + Equity.balance + Revenue.balance - Expense.balance)

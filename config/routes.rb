@@ -1,4 +1,8 @@
 Ostazonline::Application.routes.draw do
+  get "main/index"
+
+  get "main/balance_sheet"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   resources :accounts
