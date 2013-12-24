@@ -42,6 +42,8 @@ class TransactionsController < ApplicationController
   respond_to do |format|
       if @transaction.save
         format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
+       
+        
         
       else
         format.html { render action: "new" }

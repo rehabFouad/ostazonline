@@ -17,6 +17,11 @@ module NavigationHelpers
 
     when /^new account page$/ then '/accounts/new'
       
+    when /^the transactions page$/ then '/transactions'
+
+    when /^new account page$/ then '/transactions/new'
+    
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

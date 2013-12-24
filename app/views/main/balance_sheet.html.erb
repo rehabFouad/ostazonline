@@ -23,13 +23,13 @@
 				<td><%= liability_account.name %></td>
 				<td><%= liability_account.credits_balance %></td>
 				<td><%= liability_account.debits_balance %></td>
-				<td><%= liability_account.balance.abs %></td>	 
+				<td><%= liability_account.balance %></td>	 
 			<% end %>
 			</tr>
 			<tr>
 			   <td><p style="color: red"><B>Final Balance</B></p></td>
 			   
-			   <td><%= Liability.balance.abs %></td>
+			   <td><%= Liability.balance %></td>
 			   <td></td>
 			   <td></td>
 			</tr>
@@ -51,13 +51,13 @@
 				<td><%= asset_account.name %></td>
 				<td><%= asset_account.credits_balance %></td>
 				<td><%= asset_account.debits_balance %></td>
-				<td><%= asset_account.balance.abs %></td>
+				<td><%= asset_account.balance %></td>
 			</tr>
 			<% end %>
 			</tr>
 			<tr>
 				<td><p style="color: red"><B>Final Balance</B></p></td>
-				 <td><%= Asset.balance.abs %></td><td></td> <td></td>
+				 <td><%= Asset.balance %></td><td></td> <td></td>
 			</tr>
 		</table>
 </div>
@@ -76,14 +76,14 @@
 					    <td><%= expense_account.name %></td>
 					    <td><%= expense_account.credits_balance %></td>
 					    <td><%= expense_account.debits_balance %></td>
-					   <td><%= expense_account.balance.abs %></td>
+					   <td><%= expense_account.balance %></td>
 					   
 					  </tr>
 				<% end %>
 			</tr>
 			<tr>
 				<td><p style="color: red"><B>Final Balance</B></p></td>
-				 <td><%= Expense.balance.abs %></td><td></td> <td></td>
+				 <td><%= Expense.balance %></td><td></td> <td></td>
 			</tr>
 		</table>
 </div>
@@ -103,13 +103,13 @@
 					    <td><%= equity_account.name %></td>
 					    <td><%= equity_account.credits_balance %></td>
 					    <td><%= equity_account.debits_balance %></td>
-					    <td><%= equity_account.balance.abs %></td>
+					    <td><%= equity_account.balance %></td>
 					  </tr>
 				<% end %>
 			</tr>
 			<tr>
 				<td><p style="color: red"><B>Final Balance</B></p></td>
-				 <td><%= Equity.balance.abs %></td><td></td> <td></td>
+				 <td><%= Equity.balance %></td><td></td> <td></td>
 			</tr>
 		</table>
 </div>
