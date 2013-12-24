@@ -11981,3 +11981,406 @@ Served asset /main.js - 304 Not Modified (0ms)
 
 Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-18 21:51:19 +0200
 Served asset /main.css - 304 Not Modified (3ms)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2013-12-18 22:12:30 +0200
+Connecting to database specified by database.yml
+Processing by TransactionsController#index as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  [1m[35mAccount Load (0.4ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 9
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 9[0m
+  [1m[35mAccount Load (0.5ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 9
+  [1m[36mDebitAmount Load (0.4ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 9[0m
+  [1m[35mAccount Load (0.3ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 10
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 10[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 10
+  [1m[36mDebitAmount Load (0.3ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 10[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 11
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 11[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 11
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 11[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 12
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 12[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 12
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 12[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 13
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 13[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 13
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 13[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 14
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 14[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 14
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 14[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 15
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 15[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 15
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 15[0m
+  Rendered transactions/index.html.erb within layouts/application (226.4ms)
+Completed 200 OK in 363ms (Views: 302.6ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-18 22:12:31 +0200
+Served asset /application.css - 304 Not Modified (55ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:31 +0200
+Served asset /application.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:31 +0200
+Served asset /main.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:31 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:31 +0200
+Served asset /jquery.js - 304 Not Modified (43ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-18 22:12:31 +0200
+Served asset /main.css - 304 Not Modified (1ms)
+
+
+Started GET "/main/balance_sheet" for 127.0.0.1 at 2013-12-18 22:12:45 +0200
+Processing by MainController#balance_sheet as HTML
+  [1m[35mLiability Load (0.3ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Liability')
+  [1m[36mAsset Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Asset')[0m
+  [1m[35mExpense Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Expense')
+  [1m[36mEquity Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Equity')[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 24
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 24[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 25
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 25[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Liability')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 24
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 25[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 25
+  [1m[36mCreditAmount Load (0.3ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 20[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 20
+  [1m[36mCreditAmount Load (0.1ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 21[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 21
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 22[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 22
+  [1m[36mCreditAmount Load (0.4ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 23[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Asset')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 20
+  [1m[36mCACHE (2.3ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 20[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 21
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 21[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 23[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 26
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 26[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 27
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 27[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Expense')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 26[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 26
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 27[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 27
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 28[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 28
+  [1m[36mCreditAmount Load (0.1ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 29[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 29
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."type" IN ('Equity')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 28
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 28[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 29
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 29[0m
+  Rendered main/balance_sheet.html.erb within layouts/application (96.0ms)
+Completed 200 OK in 117ms (Views: 97.5ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-18 22:12:46 +0200
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-18 22:12:46 +0200
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:46 +0200
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:46 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:46 +0200
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-18 22:12:46 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/main/index" for 127.0.0.1 at 2013-12-24 13:36:20 +0200
+Connecting to database specified by database.yml
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 163ms (Views: 162.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:21 +0200
+Served asset /application.css - 200 OK (64ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:21 +0200
+Served asset /main.css - 200 OK (17ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:21 +0200
+Served asset /jquery.js - 200 OK (13ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:21 +0200
+Served asset /application.js - 200 OK (30ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:22 +0200
+Served asset /main.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:22 +0200
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 13:36:23 +0200
+Processing by AccountsController#index as HTML
+  [1m[36mAccount Load (0.6ms)[0m  [1mSELECT "accounts".* FROM "accounts" [0m
+  [1m[35mCreditAmount Load (0.3ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 20
+  [1m[36mDebitAmount Load (0.4ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 20[0m
+  [1m[35mCreditAmount Load (0.3ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 21
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 21[0m
+  [1m[35mCreditAmount Load (0.5ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 22
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 22[0m
+  [1m[35mCreditAmount Load (0.3ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 23
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 23[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 24
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 24[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 25
+  [1m[36mDebitAmount Load (0.1ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 25[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 26
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 26[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 27
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 27[0m
+  [1m[35mCreditAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 28
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 28[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 29
+  [1m[36mDebitAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 29[0m
+  Rendered accounts/index.html.erb within layouts/application (159.0ms)
+Completed 200 OK in 374ms (Views: 187.2ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:24 +0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:24 +0200
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:24 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:24 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:24 +0200
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:24 +0200
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (47.6ms)
+  Rendered accounts/new.html.erb within layouts/application (75.6ms)
+Completed 200 OK in 115ms (Views: 100.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:26 +0200
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Processing by AccountsController#index as HTML
+  [1m[35mAccount Load (0.4ms)[0m  SELECT "accounts".* FROM "accounts" 
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 20[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 20
+  [1m[36mCreditAmount Load (0.9ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 21[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 21
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 22[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 22
+  [1m[36mCreditAmount Load (0.3ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 23[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 23
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 24[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 24
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 25[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 25
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 26[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 26
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 27[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 27
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 28[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 28
+  [1m[36mCreditAmount Load (0.7ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 29[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 29
+  Rendered accounts/index.html.erb within layouts/application (60.4ms)
+Completed 200 OK in 78ms (Views: 71.1ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 13:36:31 +0200
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 13:39:46 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (107.3ms)
+  Rendered accounts/new.html.erb within layouts/application (115.4ms)
+Completed 500 Internal Server Error in 130ms
+
+ActionView::Template::Error (undefined method `merge' for :name:Symbol):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :name %>
+    16:     <%= f.text_field :name, :name %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :type %>
+  app/views/accounts/_form.html.erb:16:in `block in _app_views_accounts__form_html_erb___582520237_97038610'
+  app/views/accounts/_form.html.erb:1:in `_app_views_accounts__form_html_erb___582520237_97038610'
+  app/views/accounts/new.html.erb:15:in `_app_views_accounts_new_html_erb__806019273_94539850'
+  app/controllers/accounts_controller.rb:29:in `new'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.6ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 13:40:20 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (9.9ms)
+  Rendered accounts/new.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 86ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 13:40:21 +0200
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 13:40:21 +0200
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-24 13:40:21 +0200
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 13:40:21 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-24 13:40:21 +0200
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 13:40:21 +0200
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2013-12-24 13:48:37 +0200
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lfftTr3MUDox8Ac9AeSUex1lD1SRppmzKY8rk9wJsqo=", "account"=>{"name"=>"ddd", "type"=>"Expense"}, "commit"=>"Create Account"}
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (160.0ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 11:48:37 UTC +00:00], ["name", "ddd"], ["type", "Expense"], ["updated_at", Tue, 24 Dec 2013 11:48:37 UTC +00:00]]
+  [1m[36m (218.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/accounts/30
+Completed 302 Found in 411ms (ActiveRecord: 378.9ms)
+
+
+Started GET "/accounts/30" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[35mAccount Load (0.3ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT 1  [["id", "30"]]
+  [1m[36mCreditAmount Load (0.5ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 30[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 30
+  Rendered accounts/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Served asset /main.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 13:48:38 +0200
+Served asset /application.js - 304 Not Modified (1ms)
