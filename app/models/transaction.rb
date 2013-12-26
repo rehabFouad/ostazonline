@@ -6,6 +6,7 @@ class Transaction < ActiveRecord::Base
   has_many :credit_accounts, :through => :credit_amounts, :source => :account
   has_many :debit_accounts, :through => :debit_amounts, :source => :account
   
+ 
    def self.build(hash)
       transaction = Transaction.new(:description => hash[:description])
       hash[:debits].each do |debit|
