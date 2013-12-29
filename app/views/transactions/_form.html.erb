@@ -7,18 +7,13 @@
     <%= f.label :credit_accounts, 'Credit Account' %>
     <%= f.select :credit_accounts, options_from_collection_for_select(@accounts, 'name', 'name') %>
   </div>
-  
- <div class="field">
-    <%= f.label :credit_amounts, 'Credit Amount' %>
-    <%= f.text_field :credit_amounts %>
-  </div>
   <div class="field">
     <%= f.label :debit_accounts, 'Debit Account' %>
     <%= f.select :debit_accounts, options_from_collection_for_select(@accounts, 'name', 'name') %>
   </div>
-  <div class="field">
-    <%= f.label :debit_amounts, 'Debit Amount' %>
-    <%= f.text_field :debit_amounts %>
+ <div class="field">
+    <%= f.label :credit_amounts, 'Credit Amount' %>
+    <%= f.text_field :credit_amounts, :value=>'0.0' %>
   </div>
   <div class="actions">
     <%= f.submit %>
