@@ -23,20 +23,20 @@ class TransactionsController < ApplicationController
  end
  
  def create
-   
+   #Taking only one amount in order to make it easier in user input
    @transaction_params = params[:transaction]
    @transaction_desc = @transaction_params["description"]
    @transaction_credit_account =  @transaction_params["credit_accounts"]
-   @transaction_credit_amount =  @transaction_params["credit_amounts"]
+   # @transaction_credit_amount =  @transaction_params["credit_amounts"]
    @transaction_debit_account =  @transaction_params["debit_accounts"]
-   @transaction_debit_amount =  @transaction_params["debit_amounts"]
+   @amount =  @transaction_params["credit_amounts"]
       
    @transaction = Transaction.build(
                   :description => @transaction_desc,
                   :debits => [
-                    {:account => @transaction_debit_account, :amount => @transaction_debit_amount}], 
+                    {:account => @transaction_debit_account, :amount => @amount}], 
                   :credits => [
-                    {:account => @transaction_credit_account, :amount => @transaction_credit_amount}])
+                    {:account => @transaction_credit_account, :amount => @amount}])
   @transaction.save
   
   respond_to do |format|
