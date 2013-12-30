@@ -13,8 +13,6 @@ Background: Accounts have been added to database
   | Bank                   | Asset | 
 
 
-
-
 Scenario: Successfully create new account
     Given I am on the transactions page
     When I follow "New Transaction"
@@ -23,7 +21,7 @@ Scenario: Successfully create new account
     And I select "Cash" from "transaction_credit_accounts"
     And I select "Bank" from "transaction_debit_accounts"
     And I fill in "transaction_credit_amounts" with "100"
-    And I fill in "transaction_debit_amounts" with "100"
+    #And I fill in "transaction_debit_amounts" with "100"
     
     And I press "Create Transaction"
     Then I should see "Transaction was successfully created."
