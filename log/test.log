@@ -1113,3 +1113,383 @@ Processing by TransactionsController#index as HTML
   Rendered transactions/index.html.erb within layouts/application (97.4ms)
 Completed 200 OK in 100ms (Views: 98.1ms | ActiveRecord: 0.9ms)
   [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 20:09:03 +0200
+Processing by AccountsController#index as HTML
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered accounts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 122ms (Views: 52.1ms | ActiveRecord: 3.1ms)
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 20:09:03 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (10.8ms)
+  Rendered accounts/new.html.erb within layouts/application (71.5ms)
+Completed 200 OK in 77ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+Started POST "/accounts" for 127.0.0.1 at 2013-12-24 20:09:03 +0200
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"name"=>"Cash", "type"=>"Asset"}, "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (44.9ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:09:03 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:09:03 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/accounts/1
+Completed 302 Found in 58ms (ActiveRecord: 45.1ms)
+Started GET "/accounts/1" for 127.0.0.1 at 2013-12-24 20:09:04 +0200
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCreditAmount Load (0.1ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 1[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 1
+  Rendered accounts/show.html.erb within layouts/application (120.1ms)
+Completed 200 OK in 139ms (Views: 121.7ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (8.7ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00], ["name", "Bank"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:09:04 +0200
+Processing by TransactionsController#index as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered transactions/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+Started GET "/transactions/new" for 127.0.0.1 at 2013-12-24 20:09:04 +0200
+Processing by TransactionsController#new as HTML
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered transactions/_form.html.erb (36.6ms)
+  Rendered transactions/new.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 56ms (Views: 45.8ms | ActiveRecord: 0.2ms)
+Started POST "/transactions" for 127.0.0.1 at 2013-12-24 20:09:04 +0200
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "transaction"=>{"description"=>"Description", "credit_accounts"=>"Cash", "credit_amounts"=>"100", "debit_accounts"=>"Bank", "debit_amounts"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mAccount Load (0.1ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Bank' LIMIT 1[0m
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Cash' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.6ms)[0m  INSERT INTO "transactions" ("created_at", "description", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00], ["description", "Description"], ["updated_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["account_id", 1], ["amount", #<BigDecimal:9fcc264,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00], ["transaction_id", 1], ["type", "CreditAmount"], ["updated_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["account_id", 2], ["amount", #<BigDecimal:a1aa478,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00], ["transaction_id", 1], ["type", "DebitAmount"], ["updated_at", Tue, 24 Dec 2013 18:09:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/transactions
+Completed 302 Found in 79ms (ActiveRecord: 11.0ms)
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:09:04 +0200
+Processing by TransactionsController#index as HTML
+  [1m[35mTransaction Load (0.1ms)[0m  SELECT "transactions".* FROM "transactions" 
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1
+  Rendered transactions/index.html.erb within layouts/application (86.5ms)
+Completed 200 OK in 89ms (Views: 87.1ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.7ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 20:20:58 +0200
+Processing by AccountsController#index as HTML
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered accounts/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 134ms (Views: 54.2ms | ActiveRecord: 3.5ms)
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 20:20:58 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (40.2ms)
+  Rendered accounts/new.html.erb within layouts/application (92.3ms)
+Completed 200 OK in 108ms (Views: 95.0ms | ActiveRecord: 0.0ms)
+Started POST "/accounts" for 127.0.0.1 at 2013-12-24 20:20:58 +0200
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"name"=>"Cash", "type"=>"Asset"}, "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (15.2ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:20:58 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:20:58 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/accounts/1
+Completed 302 Found in 20ms (ActiveRecord: 15.4ms)
+Started GET "/accounts/1" for 127.0.0.1 at 2013-12-24 20:20:58 +0200
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 1[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 1
+  Rendered accounts/show.html.erb within layouts/application (293.5ms)
+Completed 200 OK in 305ms (Views: 295.5ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.9ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:20:58 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:20:58 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 24 Dec 2013 18:20:58 UTC +00:00], ["name", "Bank"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:20:58 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:20:58 +0200
+Processing by TransactionsController#index as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered transactions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 33ms (Views: 22.2ms | ActiveRecord: 9.1ms)
+Started GET "/transactions/new" for 127.0.0.1 at 2013-12-24 20:20:58 +0200
+Processing by TransactionsController#new as HTML
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered transactions/_form.html.erb (142.4ms)
+  Rendered transactions/new.html.erb within layouts/application (150.4ms)
+Completed 200 OK in 180ms (Views: 152.7ms | ActiveRecord: 0.2ms)
+Started POST "/transactions" for 127.0.0.1 at 2013-12-24 20:20:59 +0200
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "transaction"=>{"description"=>"Description", "credit_accounts"=>"Cash", "credit_amounts"=>"100", "debit_accounts"=>"Bank", "debit_amounts"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Bank' LIMIT 1[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Cash' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "transactions" ("created_at", "description", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:20:59 UTC +00:00], ["description", "Description"], ["updated_at", Tue, 24 Dec 2013 18:20:59 UTC +00:00]]
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["account_id", 1], ["amount", #<BigDecimal:9f989dc,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:20:59 UTC +00:00], ["transaction_id", 1], ["type", "CreditAmount"], ["updated_at", Tue, 24 Dec 2013 18:20:59 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["account_id", 2], ["amount", #<BigDecimal:9fd5738,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:20:59 UTC +00:00], ["transaction_id", 1], ["type", "DebitAmount"], ["updated_at", Tue, 24 Dec 2013 18:20:59 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/transactions
+Completed 302 Found in 69ms (ActiveRecord: 2.8ms)
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:20:59 +0200
+Processing by TransactionsController#index as HTML
+  [1m[35mTransaction Load (0.2ms)[0m  SELECT "transactions".* FROM "transactions" 
+  [1m[36mAccount Load (0.4ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1
+  Rendered transactions/index.html.erb within layouts/application (94.9ms)
+Completed 200 OK in 98ms (Views: 95.4ms | ActiveRecord: 1.2ms)
+  [1m[36m (1.3ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 20:21:57 +0200
+Processing by AccountsController#index as HTML
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered accounts/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 176ms (Views: 51.1ms | ActiveRecord: 3.5ms)
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 20:21:57 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (12.5ms)
+  Rendered accounts/new.html.erb within layouts/application (50.3ms)
+Completed 200 OK in 68ms (Views: 62.7ms | ActiveRecord: 0.0ms)
+Started POST "/accounts" for 127.0.0.1 at 2013-12-24 20:21:57 +0200
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"name"=>"Cash", "type"=>"Asset"}, "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (17.8ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:21:57 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:21:57 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/accounts/1
+Completed 302 Found in 24ms (ActiveRecord: 17.9ms)
+Started GET "/accounts/1" for 127.0.0.1 at 2013-12-24 20:21:57 +0200
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 1[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 1
+  Rendered accounts/show.html.erb within layouts/application (114.4ms)
+Completed 200 OK in 126ms (Views: 115.6ms | ActiveRecord: 1.5ms)
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:21:57 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:21:57 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 24 Dec 2013 18:21:57 UTC +00:00], ["name", "Bank"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:21:57 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:21:57 +0200
+Processing by TransactionsController#index as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered transactions/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.7ms)
+Started GET "/transactions/new" for 127.0.0.1 at 2013-12-24 20:21:57 +0200
+Processing by TransactionsController#new as HTML
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered transactions/_form.html.erb (71.8ms)
+  Rendered transactions/new.html.erb within layouts/application (74.3ms)
+Completed 200 OK in 83ms (Views: 76.4ms | ActiveRecord: 0.2ms)
+Started POST "/transactions" for 127.0.0.1 at 2013-12-24 20:21:58 +0200
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "transaction"=>{"description"=>"Description", "credit_accounts"=>"Cash", "credit_amounts"=>"100", "debit_accounts"=>"Bank", "debit_amounts"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mAccount Load (4.5ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Bank' LIMIT 1[0m
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Cash' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "transactions" ("created_at", "description", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:21:58 UTC +00:00], ["description", "Description"], ["updated_at", Tue, 24 Dec 2013 18:21:58 UTC +00:00]]
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["account_id", 1], ["amount", #<BigDecimal:a956ab4,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:21:58 UTC +00:00], ["transaction_id", 1], ["type", "CreditAmount"], ["updated_at", Tue, 24 Dec 2013 18:21:58 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["account_id", 2], ["amount", #<BigDecimal:a911ae0,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:21:58 UTC +00:00], ["transaction_id", 1], ["type", "DebitAmount"], ["updated_at", Tue, 24 Dec 2013 18:21:58 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/transactions
+Completed 302 Found in 96ms (ActiveRecord: 8.7ms)
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:21:58 +0200
+Processing by TransactionsController#index as HTML
+  [1m[35mTransaction Load (0.1ms)[0m  SELECT "transactions".* FROM "transactions" 
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1
+  Rendered transactions/index.html.erb within layouts/application (62.9ms)
+Completed 200 OK in 68ms (Views: 65.7ms | ActiveRecord: 0.9ms)
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by AccountsController#index as HTML
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered accounts/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 135ms (Views: 53.7ms | ActiveRecord: 2.7ms)
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (24.0ms)
+  Rendered accounts/new.html.erb within layouts/application (68.5ms)
+Completed 200 OK in 78ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+Started POST "/accounts" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"name"=>"Cash", "type"=>"Asset"}, "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (27.5ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/accounts/1
+Completed 302 Found in 39ms (ActiveRecord: 27.7ms)
+Started GET "/accounts/1" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCreditAmount Load (0.2ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 1[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 1
+  Rendered accounts/show.html.erb within layouts/application (96.9ms)
+Completed 200 OK in 107ms (Views: 98.5ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00], ["name", "Bank"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by TransactionsController#index as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered transactions/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+Started GET "/transactions/new" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by TransactionsController#new as HTML
+  [1m[35mAccount Load (3.1ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered transactions/_form.html.erb (56.0ms)
+  Rendered transactions/new.html.erb within layouts/application (58.1ms)
+Completed 200 OK in 77ms (Views: 67.6ms | ActiveRecord: 3.1ms)
+Started POST "/transactions" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "transaction"=>{"description"=>"Description", "credit_accounts"=>"Cash", "credit_amounts"=>"100", "debit_accounts"=>"Bank", "debit_amounts"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Bank' LIMIT 1[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Cash' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "transactions" ("created_at", "description", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00], ["description", "Description"], ["updated_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00]]
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["account_id", 1], ["amount", #<BigDecimal:b1b7370,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00], ["transaction_id", 1], ["type", "CreditAmount"], ["updated_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["account_id", 2], ["amount", #<BigDecimal:b3582c4,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00], ["transaction_id", 1], ["type", "DebitAmount"], ["updated_at", Tue, 24 Dec 2013 18:22:41 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/transactions
+Completed 302 Found in 80ms (ActiveRecord: 3.0ms)
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:22:41 +0200
+Processing by TransactionsController#index as HTML
+  [1m[35mTransaction Load (0.1ms)[0m  SELECT "transactions".* FROM "transactions" 
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mCreditAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mDebitAmount Load (2.8ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1
+  Rendered transactions/index.html.erb within layouts/application (61.1ms)
+Completed 200 OK in 64ms (Views: 59.1ms | ActiveRecord: 3.6ms)
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/accounts" for 127.0.0.1 at 2013-12-24 20:24:52 +0200
+Processing by AccountsController#index as HTML
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered accounts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 334ms (Views: 101.3ms | ActiveRecord: 10.3ms)
+Started GET "/accounts/new" for 127.0.0.1 at 2013-12-24 20:24:52 +0200
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (32.5ms)
+  Rendered accounts/new.html.erb within layouts/application (121.4ms)
+Completed 200 OK in 133ms (Views: 123.5ms | ActiveRecord: 0.0ms)
+Started POST "/accounts" for 127.0.0.1 at 2013-12-24 20:24:52 +0200
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"name"=>"Cash", "type"=>"Asset"}, "commit"=>"Create Account"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (66.7ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:24:52 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:24:52 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/accounts/1
+Completed 302 Found in 92ms (ActiveRecord: 67.0ms)
+Started GET "/accounts/1" for 127.0.0.1 at 2013-12-24 20:24:52 +0200
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCreditAmount Load (0.8ms)[0m  [1mSELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."account_id" = 1[0m
+  [1m[35mDebitAmount Load (0.2ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."account_id" = 1
+  Rendered accounts/show.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 136ms (Views: 126.1ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00], ["name", "Cash"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "accounts" ("created_at", "name", "type", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00], ["name", "Bank"], ["type", "Asset"], ["updated_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:24:53 +0200
+Processing by TransactionsController#index as HTML
+  [1m[36mTransaction Load (0.1ms)[0m  [1mSELECT "transactions".* FROM "transactions" [0m
+  Rendered transactions/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 64ms (Views: 36.1ms | ActiveRecord: 25.4ms)
+Started GET "/transactions/new" for 127.0.0.1 at 2013-12-24 20:24:53 +0200
+Processing by TransactionsController#new as HTML
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" 
+  Rendered transactions/_form.html.erb (56.3ms)
+  Rendered transactions/new.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 86ms (Views: 62.3ms | ActiveRecord: 0.2ms)
+Started POST "/transactions" for 127.0.0.1 at 2013-12-24 20:24:53 +0200
+Processing by TransactionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "transaction"=>{"description"=>"Description", "credit_accounts"=>"Cash", "credit_amounts"=>"100", "debit_accounts"=>"Bank", "debit_amounts"=>"100"}, "commit"=>"Create Transaction"}
+  [1m[36mAccount Load (0.1ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Bank' LIMIT 1[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."name" = 'Cash' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "transactions" ("created_at", "description", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00], ["description", "Description"], ["updated_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00]]
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["account_id", 1], ["amount", #<BigDecimal:a6399d0,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00], ["transaction_id", 1], ["type", "CreditAmount"], ["updated_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "amounts" ("account_id", "amount", "created_at", "transaction_id", "type", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["account_id", 2], ["amount", #<BigDecimal:a46c9e0,'0.1E3',9(18)>], ["created_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00], ["transaction_id", 1], ["type", "DebitAmount"], ["updated_at", Tue, 24 Dec 2013 18:24:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/transactions
+Completed 302 Found in 123ms (ActiveRecord: 2.5ms)
+Started GET "/transactions" for 127.0.0.1 at 2013-12-24 20:24:53 +0200
+Processing by TransactionsController#index as HTML
+  [1m[35mTransaction Load (0.1ms)[0m  SELECT "transactions".* FROM "transactions" 
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mCreditAmount Load (4.5ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('CreditAmount') AND "amounts"."transaction_id" = 1
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" INNER JOIN "amounts" ON "accounts"."id" = "amounts"."account_id" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1[0m
+  [1m[35mDebitAmount Load (0.1ms)[0m  SELECT "amounts".* FROM "amounts" WHERE "amounts"."type" IN ('DebitAmount') AND "amounts"."transaction_id" = 1
+  Rendered transactions/index.html.erb within layouts/application (116.9ms)
+Completed 200 OK in 124ms (Views: 117.8ms | ActiveRecord: 5.3ms)
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
