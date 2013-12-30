@@ -1,40 +1,24 @@
-<table><tr><td valign="top">
-<div>
-<div id="main"> <%= link_to 'Accounts', accounts_path %> </div> 
-
-
-<div  id="main"> <%= link_to 'Transactions', transactions_path %> </div>
-
-<div  id="main"> <%= link_to 'Balance Sheet', main_balance_sheet_path %> </div>
-</div>
-</td>
-<td valign="top">
-<div>
-<h2 id="title">Listing Accounts</h2>
+<h1 class="title">Listing Accounts</h2>
 
 <table id="balance">
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Credit Amount</th>
-    <th>Debit Amount</th>
-  </tr>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Credit Amount</th>
+		<th>Debit Amount</th>
+	</tr>
 
-<% @accounts.each do |account| %>
-  <tr>
-    <td><%= account.name %></td>
-    <td><%= account.type %></td>
-    <td><%= account.credits_balance %></td>
-    <td><%= account.debits_balance %></td>
-    <td><%= link_to 'Show', account_path(account.id) %></td>
-  </tr>
-<% end %>
+	<% @accounts.each do |account| %>
+	<tr>
+		<td><%= account.name %></td>
+		<td><%= account.type %></td>
+		<td><%= account.credits_balance %></td>
+		<td><%= account.debits_balance %></td>
+		<td><%= link_to 'Show', account_path(account.id) %></td>
+	</tr>
+	<% end %>
 </table>
 
 <br />
 <%= link_to 'New Account', new_account_path %>
-</td>
-</tr>
-</table>
-
 

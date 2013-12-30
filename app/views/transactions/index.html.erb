@@ -1,16 +1,5 @@
-<table><tr><td valign="top">
-<div>
-<div id="main"> <%= link_to 'Accounts', accounts_path %> </div> 
-
-
-<div  id="main"> <%= link_to 'Transactions', transactions_path %> </div>
-
-<div  id="main"> <%= link_to 'Balance Sheet', main_balance_sheet_path %> </div>
-</div>
-</td>
-<td valign="top">
 	<p id="notice"><%= notice %></p>
-	<h2 id="title">Listing Transactions</h1>
+	<h1 class="title">Listing Transactions</h1>
 
 <table id="balance">
   <tr>
@@ -36,6 +25,3 @@
 <br />
 
 <%= link_to 'New Transaction', new_transaction_path %>
-
-</td>
-</tr></table>

@@ -1,118 +1,114 @@
-<table><tr><td valign="top">
-<div>
-<div id="main"> <%= link_to 'Accounts', accounts_path %> </div> 
-
-
-<div  id="main"> <%= link_to 'Transactions', transactions_path %> </div>
-
-<div  id="main"> <%= link_to 'Balance Sheet', main_balance_sheet_path %> </div>
-</div>
-</td>
-<td valign="top">
-	<div id="balance">
-	<h2 id="title">Liability Accounts</h1>
-		<table id="balance">
-			<tr>
-				<th>Name</th>
-				<th>Credit Amount</th>
-				<th>Debit Amount</th>
-				<th>Account Balance</th>
-			</tr>
-			<% @liability_accounts.each do |liability_account| %>
-			<tr>
-				<td><%= liability_account.name %></td>
-				<td><%= liability_account.credits_balance %></td>
-				<td><%= liability_account.debits_balance %></td>
-				<td><%= liability_account.balance %></td>	 
+<div id="balance">
+	<h1 class="title">Liability Accounts</h1>
+	<table id="balance">
+		<tr>
+			<th>Name</th>
+			<th>Credit Amount</th>
+			<th>Debit Amount</th>
+			<th>Account Balance</th>
+		</tr>
+		<% @liability_accounts.each do |liability_account| %>
+		<tr>
+			<td><%= liability_account.name %></td>
+			<td><%= liability_account.credits_balance %></td>
+			<td><%= liability_account.debits_balance %></td>
+			<td><%= liability_account.balance %></td>
 			<% end %>
-			</tr>
-			<tr>
-			   <td><p style="color: red"><B>Final Balance</B></p></td>
-			   
-			   <td><%= Liability.balance %></td>
-			   <td></td>
-			   <td></td>
-			</tr>
-		</table>
-</div>
+		</tr>
+		<tr>
+			<td>
+			<p style="color: red">
+				<B>Final Balance</B>
+			</p></td>
 
+			<td><%= Liability.balance %></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</div>
 
 <div id="balance">
 	<h2 id="title">Asset Accounts</h1>
-		<table id="balance">
-			<tr>
-				<th>Name</th>
-				<th>Credit Amount</th>
-				<th>Debit Amount</th>
-				<th>Account Balance</th>
-			</tr>
-			<% @asset_accounts.each do |asset_account| %>
-			<tr>
-				<td><%= asset_account.name %></td>
-				<td><%= asset_account.credits_balance %></td>
-				<td><%= asset_account.debits_balance %></td>
-				<td><%= asset_account.balance %></td>
-			</tr>
-			<% end %>
-			</tr>
-			<tr>
-				<td><p style="color: red"><B>Final Balance</B></p></td>
-				 <td><%= Asset.balance %></td><td></td> <td></td>
-			</tr>
-		</table>
+	<table id="balance">
+		<tr>
+			<th>Name</th>
+			<th>Credit Amount</th>
+			<th>Debit Amount</th>
+			<th>Account Balance</th>
+		</tr>
+		<% @asset_accounts.each do |asset_account| %>
+		<tr>
+			<td><%= asset_account.name %></td>
+			<td><%= asset_account.credits_balance %></td>
+			<td><%= asset_account.debits_balance %></td>
+			<td><%= asset_account.balance %></td>
+		</tr>
+		<% end %>
+		</tr>
+		<tr>
+			<td>
+			<p style="color: red">
+				<B>Final Balance</B>
+			</p></td>
+			<td><%= Asset.balance %></td><td></td><td></td>
+		</tr>
+	</table>
 </div>
 
 <div id="balance">
 	<h2 id="title">Expense Accounts</h1>
-		<table id="balance">
-			<tr>
-				<th>Name</th>
-				<th>Credit Amount</th>
-				<th>Debit Amount</th>
-				<th>Account Balance</th>
-			</tr>
-			<% @expense_accounts.each do |expense_account| %>
-					  <tr>
-					    <td><%= expense_account.name %></td>
-					    <td><%= expense_account.credits_balance %></td>
-					    <td><%= expense_account.debits_balance %></td>
-					   <td><%= expense_account.balance %></td>
-					   
-					  </tr>
-				<% end %>
-			</tr>
-			<tr>
-				<td><p style="color: red"><B>Final Balance</B></p></td>
-				 <td><%= Expense.balance %></td><td></td> <td></td>
-			</tr>
-		</table>
-</div>
+	<table id="balance">
+		<tr>
+			<th>Name</th>
+			<th>Credit Amount</th>
+			<th>Debit Amount</th>
+			<th>Account Balance</th>
+		</tr>
+		<% @expense_accounts.each do |expense_account| %>
+		<tr>
+			<td><%= expense_account.name %></td>
+			<td><%= expense_account.credits_balance %></td>
+			<td><%= expense_account.debits_balance %></td>
+			<td><%= expense_account.balance %></td>
 
+		</tr>
+		<% end %>
+		</tr>
+		<tr>
+			<td>
+			<p style="color: red">
+				<B>Final Balance</B>
+			</p></td>
+			<td><%= Expense.balance %></td><td></td><td></td>
+		</tr>
+	</table>
+</div>
 
 <div id="balance">
 	<h2 id="title">Equity Accounts</h1>
-		<table id="balance">
-			<tr>
-				<th>Name</th>
-				<th>Credit Amount</th>
-				<th>Debit Amount</th>
-				<th>Account Balance</th>
-			</tr>
-			<% @equity_accounts.each do |equity_account| %>
-					  <tr>
-					    <td><%= equity_account.name %></td>
-					    <td><%= equity_account.credits_balance %></td>
-					    <td><%= equity_account.debits_balance %></td>
-					    <td><%= equity_account.balance %></td>
-					  </tr>
-				<% end %>
-			</tr>
-			<tr>
-				<td><p style="color: red"><B>Final Balance</B></p></td>
-				 <td><%= Equity.balance %></td><td></td> <td></td>
-			</tr>
-		</table>
+	<table id="balance">
+		<tr>
+			<th>Name</th>
+			<th>Credit Amount</th>
+			<th>Debit Amount</th>
+			<th>Account Balance</th>
+		</tr>
+		<% @equity_accounts.each do |equity_account| %>
+		<tr>
+			<td><%= equity_account.name %></td>
+			<td><%= equity_account.credits_balance %></td>
+			<td><%= equity_account.debits_balance %></td>
+			<td><%= equity_account.balance %></td>
+		</tr>
+		<% end %>
+		</tr>
+		<tr>
+			<td>
+			<p style="color: red">
+				<B>Final Balance</B>
+			</p></td>
+			<td><%= Equity.balance %></td><td></td><td></td>
+		</tr>
+	</table>
 </div>
-</td>
-</tr>
-</table>

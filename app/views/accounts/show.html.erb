@@ -1,39 +1,25 @@
-<table><tr><td valign="top">
-<div>
-<div id="main"> <%= link_to 'Accounts', accounts_path %> </div> 
-
-
-<div  id="main"> <%= link_to 'Transactions', transactions_path %> </div>
-
-<div  id="main"> <%= link_to 'Balance Sheet', main_balance_sheet_path %> </div>
-</div>
-</td>
-<td valign="top">
-	
-	<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @account.name %>
+<p id="notice">
+	<%= notice %>
 </p>
 
 <p>
-  <b>Type:</b>
-  <%= @account.type %>
+	<b>Name:</b>
+	<%= @account.name %>
 </p>
 
 <p>
-  <b>Credit Balance</b>
-  <%= @account.credits_balance %>
+	<b>Type:</b>
+	<%= @account.type %>
 </p>
-
 
 <p>
-  <b>Debit Balance</b>
-  <%= @account.debits_balance %>
+	<b>Credit Balance</b>
+	<%= @account.credits_balance %>
 </p>
 
+<p>
+	<b>Debit Balance</b>
+	<%= @account.debits_balance %>
+</p>
 
 <%= link_to 'Back', accounts_path %>
-</td>
-</tr></table>

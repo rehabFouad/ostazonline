@@ -12,28 +12,6 @@
  *= require_tree .
  */
 
-div#main {
-  width: 150px;
-  margin: 0 0 1em;
-  padding: 10px;
-  background-color: #0099CC;
-  color: white;
-  border-bottom: 4px solid #66CCFF;
-  
-  font-style: normal;
-}
-
-
-h2#title {
-  padding: 5px;
-  background-color: #0099CC;
-  color: white;
-  border-bottom: 4px solid #66CCFF;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-}
-
 table#balance {
   margin: 10px;
   border-collapse: collapse;
