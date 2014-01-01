@@ -1,21 +1,25 @@
-<%= form_for(@transaction) do |f| %>
+<%= form_for @transaction , :html=>{:multipart=>true} do |f| %>
 <div class="field">
-    <%= f.label :description%>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :credit_accounts, 'Credit Account' %>
-    <%= f.select :credit_accounts, options_from_collection_for_select(@accounts, 'name', 'name') %>
-  </div>
-  <div class="field">
-    <%= f.label :debit_accounts, 'Debit Account' %>
-    <%= f.select :debit_accounts, options_from_collection_for_select(@accounts, 'name', 'name') %>
-  </div>
- <div class="field">
-    <%= f.label :credit_amounts, 'Credit Amount' %>
-    <%= f.text_field :credit_amounts, :value=>'0.0' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<%= f.label :description%>
+	<%= f.text_field :description %>
+</div>
+<div class="field">
+	<%= f.label :credit_account, 'Credit Account' %>
+	<%= f.select :credit_account, options_from_collection_for_select(@accounts, 'name', 'name') %>
+</div>
+<div class="field">
+	<%= f.label :debit_account, 'Debit Account' %>
+	<%= f.select :debit_account, options_from_collection_for_select(@accounts, 'name', 'name') %>
+</div>
+<div class="field">
+	<%= f.label 'Amount' %>
+	<%= f.text_field :amount, :value=>'0.0' %>
+</div>
+<div class="field">
+	<%= f.label :attachment %>
+	<%= f.file_field :attachment %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>

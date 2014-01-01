@@ -34,4 +34,7 @@ Ostazonline::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # sets 'convert' command path for Paperclip gem to use
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

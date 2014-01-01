@@ -1,24 +1,22 @@
 class Transaction < ActiveRecord::Base
-  attr_accessible :description, :credit_amounts, :debit_amounts, :credit_accounts, :debit_accounts
-  
-  has_many :credit_amounts, :extend => AmountsExtension
-  has_many :debit_amounts, :extend => AmountsExtension
-  has_many :credit_accounts, :through => :credit_amounts, :source => :account
-  has_many :debit_accounts, :through => :debit_amounts, :source => :account
-  
- 
-   def self.build(hash)
-      transaction = Transaction.new(:description => hash[:description])
-      hash[:debits].each do |debit|
-        a = Account.find_by_name(debit[:account])
-        transaction.debit_amounts << DebitAmount.new(:account => a, :amount => debit[:amount], :transaction => transaction)
-      end
-      hash[:credits].each do |credit|
-        a = Account.find_by_name(credit[:account])
-        transaction.credit_amounts << CreditAmount.new(:account => a, :amount => credit[:amount], :transaction => transaction)
-      end
-      transaction
-    end
+  attr_accessible :description, :credit_amount, :debit_amount, :credit_account, :debit_account, :attachment
+  has_attached_file :attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/:style/missing.png"
 
+  has_one :credit_amount, :extend => AmountsExtension
+  has_one :debit_amount, :extend => AmountsExtension
+  has_one :credit_account, :through => :credit_amount, :source => :account
+  has_one :debit_account, :through => :debit_amount, :source => :account
+  def self.build(hash)
+    transaction = Transaction.new(:description => hash[:description])
+    transaction.attachment = hash[:attachment]
+
+    debit_account = Account.find_by_name(hash[:debit][:account])
+    transaction.debit_amount = DebitAmount.new(:account => debit_account, :amount => hash[:debit][:amount], :transaction => transaction)
+
+    credit_account= Account.find_by_name(hash[:credit][:account])
+    transaction.credit_amount = CreditAmount.new(:account => credit_account, :amount => hash[:credit][:amount], :transaction => transaction)
+
+    transaction
+  end
 
 end
