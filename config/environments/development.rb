@@ -37,4 +37,7 @@ Ostazonline::Application.configure do
   
   # sets 'convert' command path for Paperclip gem to use
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  
+  #defined default url options in environments files
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

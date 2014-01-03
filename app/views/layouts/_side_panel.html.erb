@@ -1,12 +1,8 @@
 <h2>Main Menu</h2>
-<ul>
-	<li>
-		<%= link_to 'Accounts', accounts_path %>
-	</li>
-	<li>
-		<%= link_to 'Transactions', transactions_path %>
-	</li>
-	<li>
-		<%= link_to 'Balance Sheet', main_balance_sheet_path %>
-	</li>
-</ul>
+<% if user_signed_in? %>
+	<ul>
+		<li><%= link_to 'Accounts', accounts_path %></li>
+		<li><%= link_to 'Transactions', transactions_path %></li>
+		<li><%= link_to 'Balance Sheet', main_balance_sheet_path %></li>
+	</ul>
+<% end %>

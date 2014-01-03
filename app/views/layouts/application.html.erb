@@ -1,13 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>Welcome to our site</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<head>
+		<title>Welcome to our site</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
+
 	</head>
 	<body>
 		<div class="main">
@@ -16,6 +17,9 @@
 					<h1>Ostaz Online</h1>
 					<div class="header-img" style="margin-top: 5px"><img src="/assets/header.jpg" alt="" height="150" width="800">
 					</div>
+					<div class="topmenu">
+						<%= render '/layouts/top_panel' %>
+					</div>
 				</div>
 				<div class="content">
 					<div class="leftpanel">
@@ -23,18 +27,28 @@
 					</div>
 					<div class="rightpanel">
 						<div class="rightbody">
+							<% if notice %>
+							<p class="alert-box notice"><span>notice: </span>
+								<%= notice %>
+							</p>
+							<% end %>
+							<% if alert %>
+							<p class="alert-box error"><span>error: </span>
+								<%= alert %>
+							</p>
+							<% end %>
 							<%= yield %>
 						</div>
 					</div>
 				</div>
 				<div class="footer">
 					<p>
-						<img src="/assets/footnote.gif" class="copyright" alt="website templates">
+						<a href="http://ostazonline.herokuapp.com"> <img src="assets/footnote.gif" class="copyright" alt="Ostaz Online"></a>
 					</p>
 				</div>
+
 			</div>
 		</div>
 	</body>
 </html>
-
 
