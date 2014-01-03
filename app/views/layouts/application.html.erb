@@ -14,8 +14,7 @@
 		<div class="main">
 			<div class="page">
 				<div class="header">
-					<h1>Ostaz Online</h1>
-					<div class="header-img" style="margin-top: 5px"><img src="/assets/header.jpg" alt="" height="150" width="800">
+					<div class="header-img" style="margin-top: 20px"><img src="/assets/header.jpg" alt="" height="110" width="800">
 					</div>
 					<div class="topmenu">
 						<%= render '/layouts/top_panel' %>
@@ -26,17 +25,13 @@
 						<%= render '/layouts/side_panel' %>
 					</div>
 					<div class="rightpanel">
+						<% if notice %>
+							<p class="alert-box notice"><span>notice: </span><%= notice %></p>
+						<% end %>
+						<% if alert %>
+							<p class="alert-box error"><span>error: </span><%= alert %></p>
+						<% end %>
 						<div class="rightbody">
-							<% if notice %>
-							<p class="alert-box notice"><span>notice: </span>
-								<%= notice %>
-							</p>
-							<% end %>
-							<% if alert %>
-							<p class="alert-box error"><span>error: </span>
-								<%= alert %>
-							</p>
-							<% end %>
 							<%= yield %>
 						</div>
 					</div>
