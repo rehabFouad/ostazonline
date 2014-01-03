@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :role
   before_create :setup_default_role_for_new_users
 
-  ROLES = %w[admin default banned]
 
+  def self.rols
+    %w[Observer Accountant Entry]
+  end
   private
   def setup_default_role_for_new_users
     if self.role.blank?
