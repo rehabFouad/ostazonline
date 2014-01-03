@@ -1,6 +1,44 @@
 {
   "Cucumber Features": {
     "coverage": {
+      "/home/saasbook/Documents/ostazonline/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/saasbook/Documents/ostazonline/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/ostazonline/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/ostazonline/app/helpers/accounts_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/ostazonline/app/helpers/main_helper.rb": [
+        1,
+        null
+      ],
       "/home/saasbook/Documents/ostazonline/app/controllers/accounts_controller.rb": [
         1,
         null,
@@ -52,23 +90,16 @@
         null,
         null,
         null,
-        null
-      ],
-      "/home/saasbook/Documents/ostazonline/app/controllers/application_controller.rb": [
+        null,
         1,
-        1,
-        null
-      ],
-      "/home/saasbook/Documents/ostazonline/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/Documents/ostazonline/app/helpers/accounts_helper.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/Documents/ostazonline/app/helpers/main_helper.rb": [
-        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
         null
       ],
       "/home/saasbook/Documents/ostazonline/app/models/account.rb": [
@@ -214,6 +245,27 @@
         null,
         null
       ],
+      "/home/saasbook/Documents/ostazonline/app/models/ability.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
       "/home/saasbook/Documents/ostazonline/app/models/amount.rb": [
         1,
         null,
@@ -287,6 +339,6 @@
         null
       ]
     },
-    "timestamp": 1388742187
+    "timestamp": 1388779790
   }
 }

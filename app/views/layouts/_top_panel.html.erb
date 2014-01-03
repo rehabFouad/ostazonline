@@ -1,14 +1,18 @@
 <ul>
 	<% if user_signed_in? %>
+		<li><%= link_to 'Accounts', accounts_path %></li>
+		<li><%= link_to 'Transactions', transactions_path %></li>
+		<li><%= link_to 'Balance Sheet', main_balance_sheet_path %></li>
 
-		<div style="float: right; padding: 2px; color: white">Logged in as <strong><%= current_user.email %></strong>.</div>
-		<li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-		<li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+		<div style="float: right; padding: 2px; color: white">
+			<li><%= link_to current_user.username , edit_user_registration_path %></li>
+			<li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+		</div>
 	
 	<% else %>
-	
-		<li><%= link_to "Sign up", new_user_registration_path%></li>
-		<li><%= link_to "Login", new_user_session_path%></li>
-	
+		<div style="float: right; padding: 2px; color: white">
+			<li><%= link_to "Sign up", new_user_registration_path%></li>
+			<li><%= link_to "Login", new_user_session_path%></li>
+		</div>
 	<% end %>
 <ul>

@@ -21,19 +21,14 @@
 					</div>
 				</div>
 				<div class="content">
-					<div class="leftpanel">
-						<%= render '/layouts/side_panel' %>
-					</div>
-					<div class="rightpanel">
-						<% if notice %>
-							<p class="alert-box notice"><span>notice: </span><%= notice %></p>
-						<% end %>
-						<% if alert %>
-							<p class="alert-box error"><span>error: </span><%= alert %></p>
-						<% end %>
-						<div class="rightbody">
-							<%= yield %>
-						</div>
+					<% if notice %>
+						<p class="alert-box notice"><span>notice: </span><%= notice %></p>
+					<% end %>
+					<% if alert %>
+						<p class="alert-box error"><span>error: </span><%= alert %></p>
+					<% end %>
+					<div class="centerbody">
+						<%= yield %>
 					</div>
 				</div>
 				<div class="footer">

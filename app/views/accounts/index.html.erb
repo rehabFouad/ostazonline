@@ -1,11 +1,11 @@
 <h1 class="title">Listing Accounts</h2>
-
 <table id="balance">
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Credit Amount</th>
 		<th>Debit Amount</th>
+		<th colspan="3">Actions</th>
 	</tr>
 
 	<% @accounts.each do |account| %>
@@ -14,11 +14,13 @@
 		<td><%= account.type %></td>
 		<td><%= account.credits_balance %></td>
 		<td><%= account.debits_balance %></td>
-		<td><%= link_to 'Show', account_path(account.id) %></td>
+		<td><%= link_to 'Show', account_path(account.id)%></td>
+		<td><%= link_to 'Edit', edit_account_path(account)%></td>
+		<% if can? :delete, @user%>
+		<td><%= link_to 'Destroy', account_path(account.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
 	</tr>
 	<% end %>
 </table>
-
 <br />
-<%= link_to 'New Account', new_account_path %>
-
+<%= link_to 'New Account', new_account_path %> 

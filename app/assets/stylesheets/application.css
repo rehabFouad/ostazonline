@@ -27,8 +27,10 @@ table#balance th {
 }
 
 form label {
-	display: block;
-	line-height: 25px;
 	font-weight: bold;
 	color: #003399;
+}
+
+form div {
+	margin-bottom: 10px;
 }

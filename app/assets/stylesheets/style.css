@@ -7,7 +7,7 @@ body {
 	margin: 30px 0px 0px 0px;
 }
 h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
-	padding: 0px;
+	padding: 1px;
 	margin: 0px;
 }
 .main {
@@ -103,18 +103,13 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 .leftpanel ul li a:hover {
 	color: #23b14d;
 }
-.rightpanel {
-	width: 540px;
-	float: left;
-	border-left: solid 170px #eaeff3;
-}
-.rightbody {
+.centerbody {
 	text-align: justify;
 	width: 100%;
 	float: left;
-	padding: 25px 0px 25px 40px;
+	padding: 25px 0px 25px 0px;
 }
-.rightbody strong {
+.centerbody strong {
 	color: #000000;
 }
 .title {
