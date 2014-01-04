@@ -8,6 +8,7 @@
 		<th>Debit Account</th>
 		<th>Debit Amount</th>
 		<th>Image</th>
+		<th>Actions</th>
 
 	</tr>
 
@@ -20,6 +21,9 @@
 		<td><%= link_to transaction.debit_account.name, account_path(transaction.debit_account.id) %></td>
 		<td><%= transaction.debit_amount.amount %></td>
 		<td><%= link_to (image_tag transaction.attachment.url(:thumb)), ((transaction.attachment.size)?(transaction.attachment.url):'#') %></td>
+		<% if can? :manage, transaction%>
+			<td><%= link_to 'Destroy', transaction_path(transaction.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
 	</tr>
 	<% end %>
 	<% end %>

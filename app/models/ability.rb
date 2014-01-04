@@ -12,10 +12,16 @@ class Ability
       can :manage, Transaction do |transaction|
         transaction.credit_account.try(:name) == "Expenses" or transaction.debit_account.try(:name) == "Expenses"
       end
+      can :read, Account do |account|
+        p account.type
+        account.try(:type) == "Expense" 
+      end
+      cannot :read, :balance
     when "Observer"
       can :read, :all
       cannot :edit, :all
       cannot :delete, :all
+      cannot :create, :all
     when nil
       raise CanCan::AccessDenied.new("Access denied, Please sign in first!")
     end

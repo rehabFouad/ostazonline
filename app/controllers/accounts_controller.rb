@@ -56,6 +56,9 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
 
     respond_to do |format|
+      transaction = Amount.where(account_id: Account.last.id)[0].transaction
+      Amount.where(transaction_id: transaction.id).destroy_all
+      transaction.destroy
       if(@account.destroy)
         flash[:notice] = 'Account was successfully destroyed.'
         

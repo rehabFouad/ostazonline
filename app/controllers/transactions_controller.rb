@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
+    authorize! :create, Transaction
     @accounts = Account.all
     @transaction = Transaction.new
 
@@ -33,13 +34,22 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
-
       else
         format.html { render action: "new" }
-
       end
     end
-
   end
 
+  def destroy
+    @transaction = Transaction.find(params[:id])
+
+    respond_to do |format|
+      if(@transaction.destroy)
+        flash[:notice] = 'Transaction was successfully destroyed.'
+
+        format.html { redirect_to transactions_path  }
+        format.json { head :no_content }
+      end
+    end
+  end
 end
