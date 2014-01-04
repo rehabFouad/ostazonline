@@ -10,12 +10,13 @@ class User < ActiveRecord::Base
 
 
   def self.rols
-    %w[Observer Accountant Entry]
+    [:Observer,:Accountant,:Entry]
   end
+  
   private
   def setup_default_role_for_new_users
     if self.role.blank?
-      self.role = "default"
+      self.role = :Default
     end
   end
 end

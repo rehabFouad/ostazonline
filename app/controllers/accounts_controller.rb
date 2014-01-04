@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  load_and_authorize_resource
   # GET /accounts
   # GET /accounts.json
   def index
@@ -43,19 +44,24 @@ class AccountsController < ApplicationController
         format.json { render json: @account, status: :created, location: @account }
       else
         @account_types = Account.types
+        flash[:error] = @account.errors.full_messages.join(",")
+
         format.html { render action: "new" }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
   end
-  
+
   def destroy
     @account = Account.find(params[:id])
-    @account.destroy
 
     respond_to do |format|
-      format.html { redirect_to accounts_path  }
-      format.json { head :no_content }
+      if(@account.destroy)
+        flash[:notice] = 'Account was successfully destroyed.'
+        
+        format.html { redirect_to accounts_path  }
+        format.json { head :no_content }
+      end
     end
   end
 end

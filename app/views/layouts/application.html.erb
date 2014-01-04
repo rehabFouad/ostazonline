@@ -21,11 +21,14 @@
 					</div>
 				</div>
 				<div class="content">
-					<% if notice %>
-						<p class="alert-box notice"><span>notice: </span><%= notice %></p>
+					<% if flash[:notice] %>
+						<p class="alert-box success"><span>success: </span><%= flash[:notice] %></p>
 					<% end %>
-					<% if alert %>
-						<p class="alert-box error"><span>error: </span><%= alert %></p>
+					<% if flash[:alert] %>
+						<p class="alert-box error"><span>error: </span><%= flash[:alert] %></p>
+					<% end %>
+					<% if flash[:error] %>
+						<p class="alert-box error"><span>error: </span><%= flash[:error] %></p>
 					<% end %>
 					<div class="centerbody">
 						<%= yield %>
@@ -33,7 +36,7 @@
 				</div>
 				<div class="footer">
 					<p>
-						<a href="http://ostazonline.herokuapp.com"> <img src="assets/footnote.gif" class="copyright" alt="Ostaz Online"></a>
+						<a href="http://ostazonline.herokuapp.com"> <img src="/assets/footnote.gif" class="copyright" alt="Ostaz Online"></a>
 					</p>
 				</div>
 

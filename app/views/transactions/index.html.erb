@@ -1,26 +1,28 @@
 <h1 class="title">Listing Transactions</h1>
 
-<table id="balance">
-  <tr>
-    <th>Description</th>
-    <th>Credit Account</th>
-    <th>Credit Amount</th>
-    <th>Debit Account</th>
-    <th>Debit Amount</th>
-    <th>Image</th>
-    
-  </tr>
+<table class="balance">
+	<tr>
+		<th>Description</th>
+		<th>Credit Account</th>
+		<th>Credit Amount</th>
+		<th>Debit Account</th>
+		<th>Debit Amount</th>
+		<th>Image</th>
 
-<% @transactions.each do |transaction| %>
-  <tr>
-    <td><%= transaction.description %></td>
-    <td><%= link_to transaction.credit_account.name, account_path(transaction.credit_account.id) %></td>
-    <td><%= transaction.credit_amount.amount %></td>
-    <td><%= link_to transaction.debit_account.name, account_path(transaction.debit_account.id) %></td>
-    <td><%= transaction.debit_amount.amount %></td>
-    <td><%= link_to (image_tag transaction.attachment.url(:thumb)), transaction.attachment.url %></td>
-  </tr>
-<% end %>
+	</tr>
+
+	<% @transactions.each do |transaction| %>
+	<% if can? :read, transaction%>
+	<tr>
+		<td><%= transaction.description %></td>
+		<td><%= link_to transaction.credit_account.name, account_path(transaction.credit_account.id) %></td>
+		<td><%= transaction.credit_amount.amount %></td>
+		<td><%= link_to transaction.debit_account.name, account_path(transaction.debit_account.id) %></td>
+		<td><%= transaction.debit_amount.amount %></td>
+		<td><%= link_to (image_tag transaction.attachment.url(:thumb)), ((transaction.attachment.size)?(transaction.attachment.url):'#') %></td>
+	</tr>
+	<% end %>
+	<% end %>
 </table>
 
 <br />

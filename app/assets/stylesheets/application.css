@@ -12,13 +12,13 @@
  *= require_tree .
  */
 
-table#balance {
+table.balance {
 	border-collapse: collapse;
 	width: 100%;
 	border-bottom: 2px solid black;
 }
 
-table#balance th {
+table.balance th {
 	border: 2px solid white;
 	font-weight: bold;
 	background-color: #66CCFF;

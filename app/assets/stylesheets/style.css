@@ -1,6 +1,6 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
+	font-size: 15px;
 	color: #333333;
 	background-image: url(bg.jpg);
 	background-repeat: repeat;
@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 }
 .topmenu ul li a {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
+	font-size: 15px;
 	line-height: normal;
 	color: #FFFFFF;
 	text-decoration: none;
@@ -67,41 +67,6 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 .content {
 	width: 800px;
 	float: left;
-}
-.leftpanel {
-	background-color: #ededed;
-	width: 130px;
-	float: left;
-	padding: 25px 20px;
-	margin-right: -170px;
-	position: relative;
-}
-.leftpanel h2 {
-	font-size: 14px;
-	line-height: 100%;
-	text-transform: uppercase;
-	color: #000000;
-	padding-bottom: 5px;
-	margin-bottom: 17px;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #cccccc;
-}
-.leftpanel ul {
-	margin-bottom: 22px;
-	list-style-type: none;
-}
-.leftpanel ul li {
-	margin-bottom: 5px;
-}
-.leftpanel ul li a {
-	font-size: 11px;
-	font-weight: bold;
-	color: #000000;
-	text-decoration: none;
-}
-.leftpanel ul li a:hover {
-	color: #23b14d;
 }
 .centerbody {
 	text-align: justify;
@@ -118,7 +83,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 	text-transform: uppercase;
 	color: #000000;
 	padding-bottom: 5px;
-	margin-bottom: 17px;
+	margin-bottom: 5px;
 	border-bottom-width: 1px;
 	border-bottom-style: dashed;
 	border-bottom-color: #cccccc;
@@ -137,7 +102,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 	float: left;
 }
 .footer p {
-	font-size: 11px;
+	font-size: 13px;
 	line-height: 57px;
 	color: #FFFFFF;
 	text-align: center;
