@@ -13,7 +13,6 @@ class Ability
         transaction.credit_account.try(:type) == "Expense" or transaction.debit_account.try(:type) == "Expense"
       end
       can :read, Account do |account|
-        p account.type
         account.try(:type) == "Expense" 
       end
       cannot :read, :balance

@@ -9,11 +9,11 @@ end
 Given /the following transactions exist/ do |transactions_table|
   transactions_table.hashes.each do |transaction|
     @transaction = Transaction.build(
+    :description => transaction[:description],
     :credit => {:account=>transaction[:credit_account],:amount => transaction[:amount]},
     :debit => {:account=>transaction[:debit_account],:amount => transaction[:amount]}
     )
     @transaction.save
-    p Transaction.all
   end
 end
 
