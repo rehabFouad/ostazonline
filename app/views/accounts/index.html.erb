@@ -15,13 +15,13 @@
 		<td><%= account.type %></td>
 		<td><%= account.credits_balance %></td>
 		<td><%= account.debits_balance %></td>
-		<td><%= link_to 'Show', account_path(account.id)%></td>
+		<td><%= link_to (image_tag "/assets/info.png"), account_path(account.id)%></td>
 		<% if can? :delete, account%>
-		<td><%= link_to 'Destroy', account_path(account.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to (image_tag "/assets/destroy.png"), account_path(account.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		<% end %>
 	</tr>
 	<% end %>
 	<% end %>
 </table>
 <br />
-<%= link_to 'New Account', new_account_path %> 
+<%= link_to 'New Account', new_account_path, {:class=>"button"} %> 

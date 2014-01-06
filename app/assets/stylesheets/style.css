@@ -42,21 +42,22 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 }
 .topmenu ul {
 	height: 15px;
-	margin: 18px 0px 0px 20px;
+	margin: 15px 0px 0px 20px;
 	list-style-type: none;
+	font-weight: bold;
 }
 .topmenu ul li {
 	background-image: url(bullet.jpg);
 	background-repeat: no-repeat;
-	background-position: left top;
-	height: 15px;
+	background-position: left center;
+	height: 16px;
 	float: left;
-	padding-left: 14px;
+	padding-left: 19px;
 	margin-right: 31px;
 }
 .topmenu ul li a {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 15px;
+	font-size: 13px;
 	line-height: normal;
 	color: #FFFFFF;
 	text-decoration: none;
@@ -108,6 +109,17 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 	text-align: center;
 }
 .footer-link {
-	color:#ffffff; 
-	text-decoration:none; 
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.button {
+	padding: 4px 8px 3px 31px;
+	border: 1px solid black;
+	color: black;
+	text-decoration: none;
+	background: silver url(wizard.png) no-repeat scroll 5px center;
+	font-size: 13px;
+	font-weight: bold;
+	background-position-x: 0px;
 }

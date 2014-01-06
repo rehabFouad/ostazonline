@@ -3,7 +3,11 @@ Ostazonline::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match 'balance_sheet' => 'balance#index'
+  get 'admin' => 'admin#index', :as => "logons"
+  get 'logon/:id' => 'admin#show', :as=>"logon"
+  delete 'logon/:id' => 'admin#destroy'
+  put 'logon/:id' => 'admin#reset'
+  get 'balance_sheet' => 'balance#index'
   resources :accounts
   
   resources :transactions

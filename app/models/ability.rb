@@ -8,6 +8,7 @@ class Ability
       can :manage, :all
     when "Accountant"
       can :manage, :all
+      cannot :manage, User
     when "Entry"
       can :manage, Transaction do |transaction|
         transaction.credit_account.try(:type) == "Expense" or transaction.debit_account.try(:type) == "Expense"
