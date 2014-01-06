@@ -24,7 +24,16 @@ class Account < ActiveRecord::Base
     end
 
     def balance
+      case type
+      when "Asset"
+        debits_balance - credits_balance
+      when "Expense"
+        debits_balance - credits_balance
+      when "Equity"
         credits_balance - debits_balance
+      when "Liability"
+        credits_balance - debits_balance
+      end
     end
 
     

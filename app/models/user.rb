@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :role
-  before_create :setup_default_role_for_new_users
+  validates_presence_of :role
+  before_create :setup_username_from_email
 
 
   def self.rols
@@ -14,9 +15,7 @@ class User < ActiveRecord::Base
   end
   
   private
-  def setup_default_role_for_new_users
-    if self.role.blank?
-      self.role = :Default
-    end
+  def setup_username_from_email
+      self.username = self.email.split('@')[0]
   end
 end
