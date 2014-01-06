@@ -3,10 +3,14 @@ Feature: Create a new account
 As an Accountant 
 I want to be able to add new accounts 
 so that I can maintain list of accounts for transactions
- 
+
+Background: User is logged in as Accountant
+Given I am a new, authenticated "Admin"
+And the following accounts exist:
+  | name                   	   | type  | 
+  | CashTest                   | Asset | 
  
 Scenario: Successfully create new account
-	Given I am a new, authenticated admin
     And I am on the accounts page
     When I follow "New Account"
     Then I should be on the new account page
@@ -15,3 +19,12 @@ Scenario: Successfully create new account
     And I press "Create Account"
     Then I should see "Account was successfully created."
     
+Scenario: Successfully show account
+    Given I am on the accounts page
+    And I follow "Show"
+    Then I should see "CashTest"
+    
+Scenario: Successfully delete account
+    Given I am on the accounts page
+    And I delete the first record in accounts
+    Then I should see "Account was successfully destroyed."
