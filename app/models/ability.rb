@@ -10,7 +10,7 @@ class Ability
       can :manage, :all
     when "Entry"
       can :manage, Transaction do |transaction|
-        transaction.credit_account.try(:name) == "Expenses" or transaction.debit_account.try(:name) == "Expenses"
+        transaction.credit_account.try(:type) == "Expense" or transaction.debit_account.try(:type) == "Expense"
       end
       can :read, Account do |account|
         p account.type

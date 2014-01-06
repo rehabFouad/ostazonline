@@ -42,7 +42,7 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction = Transaction.find(params[:id])
-
+    Amount.where(transaction_id: @transaction.id).destroy_all
     respond_to do |format|
       if(@transaction.destroy)
         flash[:notice] = 'Transaction was successfully destroyed.'
