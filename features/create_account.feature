@@ -6,7 +6,8 @@ so that I can maintain list of accounts for transactions
  
  
 Scenario: Successfully create new account
-    Given I am on the accounts page
+	Given I am a new, authenticated admin
+    And I am on the accounts page
     When I follow "New Account"
     Then I should be on the new account page
     When I fill in "account_name" with "Cash"

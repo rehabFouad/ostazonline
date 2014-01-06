@@ -132,3 +132,17 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+
+Given /^I am a new, authenticated admin$/ do
+  email = 'admin@localhost.com'
+  password = 'admin@localhost.com'
+  role = 'Admin'
+  User.new(:email => email, :password => password, :password_confirmation => password, :role=> role).save!
+
+  visit '/users/sign_in'
+  fill_in "user_email", :with => email
+  fill_in "user_password", :with => password
+  click_button "Sign in"
+
+end

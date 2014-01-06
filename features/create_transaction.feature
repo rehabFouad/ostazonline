@@ -14,7 +14,8 @@ Background: Accounts have been added to database
 
 
 Scenario: Successfully create new account
-    Given I am on the transactions page
+	Given I am a new, authenticated admin
+    And I am on the transactions page
     When I follow "New Transaction"
     Then I should be on the new transaction page
     When I fill in "transaction_description" with "Description"
