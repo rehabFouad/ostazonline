@@ -38,7 +38,7 @@ class Account < ActiveRecord::Base
 
     
     def self.all_balance
-         (Asset.balance + Revenue.balance) - (Liability.balance + Equity.balance + Expense.balance)
+         (Asset.balance) - (Liability.balance + Equity.balance + Expense.balance)
     end
 
   end
