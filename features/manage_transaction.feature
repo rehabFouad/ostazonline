@@ -52,3 +52,14 @@ Scenario: Create transaction with zero amount
     And I fill in "transaction_amount" with "0.0"
     And I press "Create Transaction"
     Then I should see "Credit amount can't be 0.0"
+    
+Scenario: Create transaction with credit account = debit account
+    Given I am on the transactions page
+    When I follow "New Transaction"
+    Then I should be on the new transaction page
+    When I fill in "transaction_description" with "Description"
+    And I select "Cash" from "transaction_credit_account"
+    And I select "Cash" from "transaction_debit_account"
+    And I fill in "transaction_amount" with "100"
+    And I press "Create Transaction"
+    Then I should see "Credit account can't equal debit account."

@@ -9,6 +9,7 @@ class Transaction < ActiveRecord::Base
   
   validates_presence_of :description
   validate :amount_not_zero 
+  validate :credit_account_not_equal_debit_account
 
   def self.build(hash)
     transaction = Transaction.new(:description => hash[:description])
@@ -26,6 +27,12 @@ class Transaction < ActiveRecord::Base
    def amount_not_zero 
    if credit_amount.amount == 0.0
       errors.add( :credit_amount, "can't be 0.0")
+    end
+  end
+  
+  def credit_account_not_equal_debit_account
+    if credit_amount.account.name == debit_amount.account.name
+      errors[:base] << "Credit account can't equal debit account."
     end
   end
 
