@@ -9,6 +9,12 @@ Given I am a new, authenticated "Admin"
 And the following accounts exist:
   | name                   	   | type  | 
   | CashTest                   | Asset | 
+  | Bank                   	   | Asset |
+  
+And the following transactions exist:
+  | description  | debit_account |credit_account | amount | 
+  | Cash_to_Bank | CashTest		 |Bank			 | 1000.0 |
+  
  
 Scenario: Successfully create new account
     And I am on the accounts page
