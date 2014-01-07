@@ -1,4 +1,21 @@
 # Add a declarative step here for populating the DB with movies.
+Given /^all accounts and associated permissions are in place$/ do
+users = User.create([
+{email: 'admin@ostazonline.herokuapp.com',      password: '123456', password_confirmation: '123456', role: 'Admin'},
+{email: 'accountant@ostazonline.herokuapp.com', password: '123456', password_confirmation: '123456', role: 'Accountant'},
+{email: 'observer@ostazonline.herokuapp.com',   password: '123456', password_confirmation: '123456', role: 'Observer'},
+{email: 'entry@ostazonline.herokuapp.com',      password: '123456', password_confirmation: '123456', role: 'Entry'}
+])
+
+permissions = Permission.create([
+  {:user_id => User.find_by_role("Admin").id,:name => "Admin", :action => "manage", :subject_class =>"all"},
+  {:user_id => User.find_by_role("Accountant").id,:name => "Accountant", :action => "manage", :subject_class =>"Account"},
+  {:user_id => User.find_by_role("Accountant").id,:name => "Accountant", :action => "manage", :subject_class =>"Transaction"},
+  {:user_id => User.find_by_role("Accountant").id,:name => "Accountant", :action => "read", :subject_class =>"all"},
+  {:user_id => User.find_by_role("Observer").id,:name => "Observer", :action => "read", :subject_class =>"all"}
+])
+end
+
 Given(/^the following user exist$/) do |table|
   table.hashes.each do |user|
     User.new(:email => user[:email], :password => user[:password], :password_confirmation => user[:password], :role=> user[:role]).save!
@@ -23,10 +40,8 @@ Given /the following transactions exist/ do |transactions_table|
 end
 
 Given /^I am a new, authenticated "(.*?)"$/ do |role|
-  email = role+'@localhost.com'
-  password = role+'@localhost.com'
-  role = role
-  User.new(:email => email, :password => password, :password_confirmation => password, :role=> role).save!
+  email = role+'@ostazonline.herokuapp.com'
+  password = "123456"
 
   visit '/users/sign_in'
   fill_in "user_email", :with => email

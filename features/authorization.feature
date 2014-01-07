@@ -19,9 +19,11 @@ Background: There are Accounts and Transactions in the DB
   | description  	| debit_account  |credit_account  | amount |
   | Bank_to_Cash	| Bank		     |Cash			  | 1000.0 | 
   | Cash_to_Expense | Cash		     |Office Expenses | 1000.0 |
+  
+  And all accounts and associated permissions are in place
  
 Scenario: Successfully authorize Accountant
-    Given I am a new, authenticated "Accountant"
+    Given I am a new, authenticated "accountant"
     When I am on the accounts page
 		    Then I should see "Bank"
 		    And I should see "Cash"

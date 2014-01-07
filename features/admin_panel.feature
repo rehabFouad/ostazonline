@@ -9,6 +9,7 @@ Background: There is one registered user in the db other than admin
 Given the following user exist
   | email            		  | password  	  | role	|
   | test@localhost.com        | password	  | Default |
+And all accounts and associated permissions are in place
 And I am a new, authenticated "Admin"
 
 Scenario: Successfully authorize Admin

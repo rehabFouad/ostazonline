@@ -5,7 +5,6 @@ I want to be able to add new accounts
 so that I can maintain list of accounts for transactions
 
 Background: User is logged in as Admin
-Given I am a new, authenticated "Admin"
 And the following accounts exist:
   | name                   	   | type  | 
   | CashTest                   | Asset | 
@@ -15,6 +14,8 @@ And the following transactions exist:
   | description  | debit_account |credit_account | amount | 
   | Cash_to_Bank | CashTest		 |Bank			 | 1000.0 |
   
+  And all accounts and associated permissions are in place  
+And I am a new, authenticated "Admin"
  
 Scenario: Successfully create new account
     And I am on the accounts page

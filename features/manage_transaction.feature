@@ -6,7 +6,6 @@ So that I can manipulate the accounts balance
 
 
 Background: Accounts have been added to database
-  Given I am a new, authenticated "Admin"
   And the following accounts exist:
   | name                   | type  | 
   | Cash                   | Asset | 
@@ -14,7 +13,9 @@ Background: Accounts have been added to database
   And the following transactions exist (Has to have the same accounts as above):
   | description  | debit_account |credit_account | amount | 
   | Cash_to_Bank | Cash		     |Bank			 | 1000.0 |
-
+  And all accounts and associated permissions are in place
+  And I am a new, authenticated "Admin"
+  
 Scenario: Successfully create new transactions
     Given I am on the transactions page
     When I follow "New Transaction"
