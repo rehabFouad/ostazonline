@@ -22,6 +22,15 @@ users = User.create([
   ])
 puts "#{User.count} users were create successfully"
 
+permissions = Permission.create([
+  {:user_id => User.find_by_role("Admin").id,:name => "Admin", :action => "manage", :subject_class =>"all"},
+  {:user_id => User.find_by_role("Accountant").id,:name => "Accountant", :action => "manage", :subject_class =>"Account"},
+  {:user_id => User.find_by_role("Accountant").id,:name => "Accountant", :action => "manage", :subject_class =>"Transaction"},
+  {:user_id => User.find_by_role("Accountant").id,:name => "Accountant", :action => "read", :subject_class =>"all"},
+  {:user_id => User.find_by_role("Observer").id,:name => "Observer", :action => "read", :subject_class =>"all"}
+])
+puts "#{User.count} rols were create successfully"
+
 accounts = Account.create([
   {name: 'Cash',              type: 'Asset'},
   {name: 'Bank',              type: 'Asset'},
@@ -35,6 +44,12 @@ transaction = Transaction.build({
     description: 'Initial Amount',
     credit:{account: 'Capital', amount: 10000.0},
     debit: {account: 'Bank',     amount: 10000.0}
+    })
+transaction.save
+transaction = Transaction.build({
+    description: 'Expense',
+    credit:{account: 'Bank', amount: 500.0},
+    debit: {account: 'Office Expenses',amount: 500.0}
     })
 transaction.save
 puts "#{Transaction.count} transaction was create successfully"
