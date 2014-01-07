@@ -30,11 +30,13 @@ class TransactionsController < ApplicationController
     :debit => {:account=>params[:transaction][:debit_account],:amount => params[:transaction][:amount]}
     })
 
-    @transaction.save
+    #@transaction.save
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
       else
+        @accounts = Account.all
+        flash[:error] = @transaction.errors.full_messages.join(",")
         format.html { render action: "new" }
       end
     end
