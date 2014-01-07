@@ -123,3 +123,7 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 	font-weight: bold;
 	background-position-x: 0px;
 }
+
+.back {
+	background: silver url(back.png) no-repeat scroll 5px center;
+}

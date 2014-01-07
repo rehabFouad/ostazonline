@@ -20,7 +20,8 @@
 		<td><%= transaction.credit_amount.amount %></td>
 		<td><%= link_to transaction.debit_account.name, account_path(transaction.debit_account.id) %></td>
 		<td><%= transaction.debit_amount.amount %></td>
-		<td><%= link_to (image_tag transaction.attachment.url(:thumb)), ((transaction.attachment.size)?(transaction.attachment.url):'#') %></td>
+		<%= has_image = !transaction.attachment.size.nil?%>
+		<td><%= link_to image_tag(has_image ? "/assets/attachment.png" : transaction.attachment.url(:thumb)), ((transaction.attachment.size)?(transaction.attachment.url):'#') %></td>
 		<% if can? :manage, transaction%>
 			<td><%= link_to (image_tag "/assets/destroy.png"), transaction_path(transaction.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		<% end %>
