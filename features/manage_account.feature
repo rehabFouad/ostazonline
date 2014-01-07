@@ -21,7 +21,7 @@ Scenario: Successfully create new account
     
 Scenario: Successfully show account
     Given I am on the accounts page
-    And I follow "Show"
+    And I Show the first account on the list
     Then I should see "CashTest"
     
 Scenario: Successfully delete account

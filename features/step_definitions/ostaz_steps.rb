@@ -37,3 +37,20 @@ end
 Given /^I delete the first record in transactions$/ do
   page.driver.submit :delete, "/transactions/#{Transaction.first.id}", {}
 end
+
+Then /^I should see the alt text "([^\"]*)"$/ do | alt_text |
+  assert page.has_xpath?("//img[@alt=#{alt_text}]")
+end
+
+Then /^I should (not )?see the action "([^"]*)"$/ do |negate, selector|
+  bu = {"Account:Show"=>"td:nth-child(5) img", "Account:Destroy"=>"td:nth-child(6) img", "Transaction:Destroy"=>"td:nth-child(7) img"}
+  if(negate)
+    assert !page.has_css?(bu[selector])
+  else
+    assert page.has_css?(bu[selector])
+  end
+end
+
+Given /^I Show the first account on the list$/ do
+  page.driver.submit :get, "/accounts/#{Account.first.id}", {}
+end

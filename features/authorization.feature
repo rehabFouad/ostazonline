@@ -26,13 +26,13 @@ Scenario: Successfully authorize Accountant
 		    Then I should see "Bank"
 		    And I should see "Cash"
 		    And I should see "Office Expenses"
-		    And I should see "Destroy"
-		    And I should see "Show"
+		    And I should see the action "Account:Destroy"
+		    And I should see the action "Account:Show"
     When I am on the transactions page
 	    	Then I should see "Bank_to_Cash"
 	    	And I should see "Cash_to_Expense"
 	    	And I should see "1000"
-	    	And I should see "Destroy"
+	    	And I should see the action "Transaction:Destroy"
 	When I am on the balance_sheet page
 			Then I should see "1000"
 			
@@ -42,13 +42,13 @@ Scenario: Successfully authorize Observer
 		    Then I should see "Bank"
 		    And I should see "Cash"
 		    And I should see "Office Expenses"
-		    And I should not see "Destroy"
-		    And I should see "Show"
+		    And I should not see the action "Account:Destroy"
+		    And I should see the action "Account:Show"
     When I am on the transactions page
 	    	Then I should see "Bank_to_Cash"
 	    	And I should see "Cash_to_Expense"
 	    	And I should see "1000"
-	    	And I should not see "Destroy"
+	    	And I should not see the action "Transaction:Destroy"
 	When I am on the balance_sheet page
 			Then I should see "1000"
 
@@ -58,13 +58,13 @@ Scenario: Successfully authorize Entry
 		    Then I should not see "Bank"
 		    And I should not see "Cash"
 		    And I should see "Office Expenses"
-		    And I should not see "Destroy"
-		    And I should see "Show"
+		    And I should not see the action "Account:Destroy"
+		    And I should see the action "Account:Show"
     When I am on the transactions page
 	    	Then I should not see "Bank_to_Cash"
 	    	And I should see "Cash_to_Expense"
 	    	And I should see "1000"
-	    	And I should see "Destroy"
+	    	And I should see the action "Transaction:Destroy"
 	When I am on the balance_sheet page
 			Then I should see "You are not authorized to access this page."
 			
