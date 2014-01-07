@@ -13,17 +13,6 @@ class AdminController < ApplicationController
 
   # GET /Users/1
   # GET /Users/1.json
-  def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
-  end
-
-  # GET /Users/1
-  # GET /Users/1.json
   def reset
     @user = User.find(params[:id])
     @user.update_attribute(:password, "123456");

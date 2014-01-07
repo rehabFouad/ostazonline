@@ -68,6 +68,6 @@ Scenario: Successfully authorize Entry
 	When I am on the balance_sheet page
 			Then I should see "You are not authorized to access this page."
 			
-Scenario: Successfully authorize Entry
+Scenario: Access denied for anonymous
     When I am on the accounts page
     		Then I should see "Access denied, Please sign in first!"
