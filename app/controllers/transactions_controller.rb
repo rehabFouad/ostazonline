@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   #load_and_authorize_resource
   def index
+    authorize! :read, Transaction
     @transactions = Transaction.all
 
     respond_to do |format|
