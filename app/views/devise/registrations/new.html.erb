@@ -1,21 +1,35 @@
 <h2 class="title">Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email%></div>
-  
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :role %><br />
-  <%= f.select :role, options_for_select(User.rols) %>
-  
-  <div><%= f.submit "Sign up" %></div>
+	<% 2.times do resource.permissions.build end if resource.permissions.empty? %>
+	<%= devise_error_messages! %>
+	
+	<div>
+		<%= f.label :email %>
+		<br />
+		<%= f.email_field :email%>
+	</div>
+	
+	<div>
+		<%= f.label :password %>
+		<br />
+		<%= f.password_field :password %>
+	</div>
+	
+	<div>
+		<%= f.label :password_confirmation %>
+		<br />
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div>
+		<%= f.fields_for :permissions do |builder| %>
+			<%= render 'permission_fields', :f => builder %>
+		<% end %>
+	</div>
+	
+	<div>
+		<%= f.submit "Sign up" %>
+	</div>
 <% end %>
 
 <%= render "devise/shared/links" %>
