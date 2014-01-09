@@ -4,12 +4,13 @@ Ostazonline::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   get 'admin' => 'admin#index', :as => "logons"
-  get 'logon/:id' => 'admin#show', :as=>"logon"
+  get 'logons/:id' => 'admin#show', :as=>"logon"
+  get 'logons/:id/edit' => 'admin#edit', :as=>"edit_logon"
   delete 'logon/:id' => 'admin#destroy'
-  put 'logon/:id' => 'admin#reset'
+  put 'logon/:id/reset' => 'admin#reset', :as=>"reset_logon"
+  put 'logons/:id' => 'admin#update'
   get 'balance_sheet' => 'balance#index'
   resources :accounts
-  
   resources :transactions
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
