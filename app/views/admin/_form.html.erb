@@ -1,0 +1,12 @@
+<%= form_for (@user), :url => logon_path(@user) do |f| %>
+<div class="field">
+	<div>
+		<%= f.fields_for :permissions do |builder| %>
+		<%= render 'permission_fields', :f => builder %>
+		<% end %>
+	</div>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>

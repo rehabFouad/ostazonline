@@ -25,6 +25,25 @@ class AdminController < ApplicationController
       end
     end
   end
+  
+  def edit
+    @user = User.find(params[:id])
+   (5-@user.permissions.count).times do @user.permissions.build end
+  end
+  
+ def update
+  @user = User.find(params[:id])
+
+  respond_to do |format|
+    if @user.update_attributes(params[:user])
+      format.html { redirect_to logons_path, notice: 'user was successfully updated.' }
+      format.json { head :no_content }
+    else
+      format.html { render action: "edit" }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
+end
   # # GET /Users/new
   # # GET /Users/new.json
   # def new

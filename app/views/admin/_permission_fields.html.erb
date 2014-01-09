@@ -1,0 +1,9 @@
+<p>
+	<%= f.label :action, "Action" %>
+	<%= f.select :action, User.actions %>
+	<%= f.label :subject_class, "Model" %>
+	<%= f.select :subject_class, User.subjects %>
+	<%= f.check_box :_destroy %>
+	<%= f.label :_destroy, "Remove" %>
+</p>
+
