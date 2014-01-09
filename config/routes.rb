@@ -6,8 +6,8 @@ Ostazonline::Application.routes.draw do
   get 'admin' => 'admin#index', :as => "logons"
   get 'logons/:id' => 'admin#show', :as=>"logon"
   get 'logons/:id/edit' => 'admin#edit', :as=>"edit_logon"
-  delete 'logon/:id' => 'admin#destroy'
-  put 'logon/:id/reset' => 'admin#reset', :as=>"reset_logon"
+  delete 'logons/:id' => 'admin#destroy'
+  put 'logons/:id/reset' => 'admin#reset', :as=>"reset_logon"
   put 'logons/:id' => 'admin#update'
   get 'balance_sheet' => 'balance#index'
   resources :accounts

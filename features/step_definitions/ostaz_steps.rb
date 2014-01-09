@@ -51,11 +51,11 @@ Given /^I am a new, authenticated "(.*?)"$/ do |role|
 end
 
 Given /^I reset the first record in users$/ do
-  page.driver.submit :put, "/logon/#{User.first.id}", {}
+  page.driver.submit :put, "/logons/#{User.first.id}/reset", {}
 end
 
 Given /^I delete the first record in users$/ do
-  page.driver.submit :delete, "/logon/#{User.first.id}", {}
+  page.driver.submit :delete, "/logons/#{User.first.id}", {}
 end
 
 Given /^I delete the first record in accounts$/ do
